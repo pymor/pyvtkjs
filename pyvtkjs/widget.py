@@ -18,7 +18,7 @@ from .traittypes import VarTuple
 
 from ._version import EXTENSION_SPEC_VERSION
 
-module_name = "jupyter-vtk-datawidgets"
+module_name = "pyvtkjs"
 
 
 class VtkWidget(Widget):

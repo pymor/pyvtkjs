@@ -37,7 +37,7 @@ import re
 
 import numpy
 
-import vtkdatawidgets.widget as vtk_widgets
+import pyvtkjs.widget as vtk_widgets
 
 _RE_TYPE = re.compile(r'P?(((Image)|(Poly))Data|((Rectilinear)|(Structured)|(Unstructured))Grid)')
 

@@ -20,7 +20,7 @@ import {
 } from './version';
 
 
-const EXTENSION_ID = 'jupyter.extensions.vtk-datawidgets';
+const EXTENSION_ID = 'jupyter.extensions.pyvtkjs';
 
 
 /**
@@ -41,7 +41,7 @@ export default examplePlugin;
  */
 function activateWidgetExtension(app: Application<Widget>, registry: IJupyterWidgetRegistry): void {
   registry.registerWidget({
-    name: 'jupyter-vtk-datawidgets',
+    name: 'pyvtkjs',
     version: JUPYTER_EXTENSION_VERSION,
     exports: widgets as any as ExportMap
   });

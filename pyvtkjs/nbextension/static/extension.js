@@ -4,7 +4,7 @@ define(function() {
     window['requirejs'].config({
         map: {
             '*': {
-                'jupyter-vtk-datawidgets': 'nbextensions/jupyter-vtk-datawidgets/index',
+                'pyvtkjs': 'nbextensions/pyvtkjs/index',
             },
         }
     });

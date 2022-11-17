@@ -25,9 +25,9 @@ class VtkWidgetModel extends WidgetModel {
 
   defaults() {
     return {...super.defaults(), ...{
-      _model_module: "jupyter-vtk-datawidgets",
+      _model_module: "pyvtkjs",
       _model_module_version: JUPYTER_EXTENSION_VERSION,
-      _view_module: "jupyter-vtk-datawidgets",
+      _view_module: "pyvtkjs",
       _view_module_version: JUPYTER_EXTENSION_VERSION,
     }}
   }

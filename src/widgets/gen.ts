@@ -189,10 +189,10 @@ class VtkRendererModel extends DOMWidgetModel {
 
   defaults() {
     return {...super.defaults(), ... {
-      _model_module: "jupyter-vtk-datawidgets",
+      _model_module: "pyvtkjs",
       _model_module_version: "1.0.0",
       _model_name: "VtkRendererModel",
-      _view_module: "jupyter-vtk-datawidgets",
+      _view_module: "pyvtkjs",
       _view_module_version: "1.0.0",
       _view_name: "VtkRendererView",
       background: [0,0,0],

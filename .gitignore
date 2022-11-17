@@ -155,4 +155,6 @@ pyvtkjs/nbextension/index.*
 pyvtkjs/labextension
 
 .idea/ 
-package-lock.json
+.yarn
+.pnp.cjs 
+.pnp.loader.mjs

@@ -1,13 +1,20 @@
-// Copyright (c) Simula Research Laboratory.
+// Copyright (c) renefritze
 // Distributed under the terms of the Modified BSD License.
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const data = require('../package.json');
+
 /**
- * The version of the attribute spec that this package
- * implements. This is the value used in
- * _model_module_version/_view_module_version.
+ * The _model_module_version/_view_module_version this package implements.
  *
- * Update this value when attributes are added/removed from
- * your models, or serialized format changes.
+ * The html widget manager assumes that this is the same as the npm package
+ * version number.
  */
-export
-const JUPYTER_EXTENSION_VERSION = '1.0.0';
+export const MODULE_VERSION = data.version;
+
+/*
+ * The current package name.
+ */
+export const MODULE_NAME = data.name;

@@ -153,3 +153,6 @@ pyvtkjs/nbextension/index.*
 
 # Packed lab extensions
 pyvtkjs/labextension
+
+.idea/ 
+package-lock.json

@@ -1,11 +1,10 @@
 import {
-  WidgetModel, DOMWidgetModel,
-  WidgetView, DOMWidgetView,
-  unpack_models, ManagerBase
+  DOMWidgetModel,
+  unpack_models
 } from '@jupyter-widgets/base';
 
 import {
-  data_union_serialization, array_serialization,
+  data_union_serialization,
   ISerializers
 } from 'jupyter-dataserializers';
 
@@ -50,6 +49,7 @@ class DataContainerModel extends VtkWidgetModel {
 
   static serializers: ISerializers = {
     ...VtkWidgetModel.serializers,
+    // @ts-ignore
     data_arrays: { deserialize: unpack_models },
   }
 
@@ -68,6 +68,7 @@ class DataSetModel extends VtkWidgetModel {
 
   static serializers: ISerializers = {
     ...VtkWidgetModel.serializers,
+      // @ts-ignore
     containers: { deserialize: unpack_models },
   }
 
@@ -203,6 +204,7 @@ class VtkRendererModel extends DOMWidgetModel {
 
   static serializers: ISerializers = {
     ...DOMWidgetModel.serializers,
+      // @ts-ignore
     dataset: { deserialize: unpack_models },
   }
 

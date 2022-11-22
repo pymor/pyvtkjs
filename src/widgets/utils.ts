@@ -2,7 +2,6 @@
 import {
   WidgetModel
 } from '@jupyter-widgets/base';
-import { Widget } from '@phosphor/widgets';
 
 
 type NestedContainer = NestedObject | NestedArray;
@@ -82,6 +81,7 @@ function childModelsNested(obj: NestedContainer): WidgetModel[] {
     // Bottom level (children are leaf nodes)
     return children as WidgetModel[];
   }
+  // @ts-ignore
   return [].concat.apply([], children.map(   // flatten
     (child) => childModelsNested(child as NestedContainer)
   ));

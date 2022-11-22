@@ -1,7 +1,6 @@
 
 import {
-  WidgetModel, DOMWidgetModel,
-  WidgetView, DOMWidgetView,
+  WidgetModel, 
   unpack_models
 } from '@jupyter-widgets/base';
 
@@ -11,7 +10,7 @@ import {
 } from 'jupyter-dataserializers';
 
 import {
-  JUPYTER_EXTENSION_VERSION
+  MODULE_VERSION
 } from '../version';
 
 import {
@@ -26,9 +25,9 @@ class VtkWidgetModel extends WidgetModel {
   defaults() {
     return {...super.defaults(), ...{
       _model_module: "pyvtkjs",
-      _model_module_version: JUPYTER_EXTENSION_VERSION,
+      _model_module_version: MODULE_VERSION,
       _view_module: "pyvtkjs",
-      _view_module_version: JUPYTER_EXTENSION_VERSION,
+      _view_module_version: MODULE_VERSION,
     }}
   }
 
@@ -61,7 +60,7 @@ class VtkWidgetModel extends WidgetModel {
       }
 
       // make sure to (un)hook listeners when child points to new object
-      this.on('change:' + key, function(model: VtkWidgetModel, value: VtkWidgetModel) {
+      this.on('change:' + key, (model: VtkWidgetModel, value: VtkWidgetModel) => {
           var prevModel = this.previous(key);
           var currModel = value;
           if (prevModel) {
@@ -75,11 +74,13 @@ class VtkWidgetModel extends WidgetModel {
     }
 
     // Handle changes in three instance nested props (arrays/dicts, possibly nested)
+    // @ts-ignore
     listenNested(this, this.nestedKeys, this.onChildChanged.bind(this));
 
     // Handle changes in data widgets/union properties
     for (let propName of this.dataWidgetKeys) {
-        listenToUnion(this, propName, this.onChildChanged.bind(this), false);
+        // @ts-ignore
+      listenToUnion(this, propName, this.onChildChanged.bind(this), false);
     }
 
     this.on('change', this.onChange, this);
@@ -89,6 +90,7 @@ class VtkWidgetModel extends WidgetModel {
   setupNestedKeys() {
     this.nestedKeys = [];
     this.dataWidgetKeys = [];
+    // @ts-ignore
     for (let [key, value] of this.pairs()) {
       const serializers = (this.constructor as typeof VtkWidgetModel).serializers || {};
       const serializer = serializers[key];

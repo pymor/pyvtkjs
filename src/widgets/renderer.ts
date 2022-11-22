@@ -1,6 +1,6 @@
 
 import {
-  DOMWidgetModel, DOMWidgetView, ManagerBase
+  DOMWidgetView,
 } from '@jupyter-widgets/base';
 
 // @ts-ignore
@@ -24,13 +24,6 @@ import vtkImageData from 'vtk.js/Sources/Common/DataModel/ImageData';
 // import vtkRectilinearGrid from 'vtk.js/Sources/Common/DataModel/vtkRectilinearGrid';
 // import vtkStructuredGrid from 'vtk.js/Sources/Common/DataModel/StructuredGrid';
 // import vtkUnstructuredGrid from 'vtk.js/Sources/Common/DataModel/UnstructuredGrid';
-
-
-import {
-  ColorMode,
-  ScalarMode,
-  // @ts-ignore
-} from 'vtk.js/Sources/Rendering/Core/Mapper/Constants';
 
 
 import {
@@ -94,13 +87,16 @@ class VtkRendererView extends DOMWidgetView {
    */
   update() {
     const diff = this.model.changedAttributes();
+    // @ts-ignore
     if (diff.background) {
       this.renderer.setBackground(ensureColorArray(this.model.get('background')));
     }
+    // @ts-ignore
     if (diff.size !== undefined) {
       const size = this.model.get('size');
       this.openglRenderWindow.setSize(size[0], size[1]);
     }
+    // @ts-ignore
     if (diff.dataset !== undefined) {
       // Recreate pipeline
       this.renderer.getActors().map((actor: any) => this.renderer.removeActor(actor));
@@ -115,7 +111,9 @@ class VtkRendererView extends DOMWidgetView {
 
   createViewer() {
     this.renderWindow = vtkRenderWindow.newInstance();
+      // @ts-ignore
     this.renderer = vtkRenderer.newInstance({
+        // @ts-ignore
       background: ensureColorArray(this.model.get('background')) || [0, 0, 0],
     });
     this.renderWindow.addRenderer(this.renderer);

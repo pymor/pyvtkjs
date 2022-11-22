@@ -34,6 +34,7 @@ function activateWidgetExtension(
   app: Application<Widget>,
   registry: IJupyterWidgetRegistry
 ): void {
+    // @ts-ignore
   registry.registerWidget({
     name: MODULE_NAME,
     version: MODULE_VERSION,

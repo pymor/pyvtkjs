@@ -16,6 +16,8 @@ const resolve = {
   extensions: [".webpack.js", ".web.js", ".ts", ".js"]
 };
 
+// var vtkRules = require('vtk.js/Utilities/config/dependency.js').webpack.core.rules;
+
 module.exports = [
   /**
    * Notebook extension
@@ -27,16 +29,19 @@ module.exports = [
     entry: './src/extension.ts',
     output: {
       filename: 'index.js',
-      path: path.resolve(__dirname, 'pyvtkjs', 'nbextension'),
+      path: path.resolve(__dirname, 'pyvtkjs', 'nbextension', 'static'),
       libraryTarget: 'amd',
       publicPath: '',
     },
     module: {
-      rules: rules
+      rules: rules,
     },
     devtool: 'source-map',
-    externals,
-    resolve,
+    externals: ['@jupyter-widgets/base'],
+    resolve: {
+      // Add '.ts' and '.tsx' as resolvable extensions.
+      extensions: [".webpack.js", ".web.js", ".ts", ".js"]
+    },
   },
 
   /**

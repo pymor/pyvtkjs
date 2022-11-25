@@ -7,7 +7,7 @@ import { Widget } from '@lumino/widgets';
 
 import { IJupyterWidgetRegistry } from '@jupyter-widgets/base';
 
-import * as widgetExports from './widget';
+import * as widgetExports from './widgets';
 
 import { MODULE_NAME, MODULE_VERSION } from './version';
 
@@ -34,6 +34,7 @@ function activateWidgetExtension(
   app: Application<Widget>,
   registry: IJupyterWidgetRegistry
 ): void {
+    // @ts-ignore
   registry.registerWidget({
     name: MODULE_NAME,
     version: MODULE_VERSION,

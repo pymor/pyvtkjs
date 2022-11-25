@@ -2,7 +2,7 @@
 requires = [
     "hatchling>=1.9.0",
     "jupyterlab==3.*",
-"setuptools",
+    "setuptools",
 ]
 build-backend = "hatchling.build"
 
